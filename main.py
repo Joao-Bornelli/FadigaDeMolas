@@ -1,19 +1,16 @@
 import tkinter as tk
-from build import gui
-
-root = tk.Tk()
-root.attributes('-fullscreen', True)
-# Create an instance of the generated GUI class
-
-def exit_fullscreen(event):
-    root.attributes('-fullscreen', False)
-
-root.bind('<Escape>', exit_fullscreen)
-
-app = gui(root)
+from build.gui import MainWindow
 
 
 
-# Start the GUI event loop
-root.mainloop()
+def main():
 
+    root = tk.Tk()
+    window = MainWindow(root)
+
+    # window.generator.start()
+
+    window.Run()  
+
+if __name__ == "__main__":
+    main()

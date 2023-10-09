@@ -9,6 +9,7 @@ from pathlib import Path
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
+from timed_interruption import InterruptionGenerator
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\joaobo\Documents\FadigaDeMolas\build\assets\frame0")
@@ -17,369 +18,394 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\joaobo\Documents\FadigaDeMolas\build
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+class MainWindow:
 
-window = Tk()
+    
+    def __init__(self, root):
 
-window.geometry("800x480")
-window.configure(bg = "#FFFFFF")
+        self.root = root
 
-
-canvas = Canvas(
-    window,
-    bg = "#FFFFFF",
-    height = 480,
-    width = 800,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
-)
-
-canvas.place(x = 0, y = 0)
-canvas.create_rectangle(
-    0.0,
-    0.0,
-    800.0,
-    480.0,
-    fill="#FFFFFF",
-    outline="")
-
-canvas.create_rectangle(
-    0.0,
-    0.0,
-    540.0,
-    480.0,
-    fill="#009B4A",
-    outline="")
-
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_1 = Button(
-    image=button_image_1,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
-    relief="flat"
-)
-button_1.place(
-    x=603.0,
-    y=216.0,
-    width=135.0,
-    height=48.0
-)
-
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
-button_2 = Button(
-    image=button_image_2,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
-    relief="flat"
-)
-button_2.place(
-    x=603.0,
-    y=216.0,
-    width=135.0,
-    height=48.0
-)
-
-button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
-button_3 = Button(
-    image=button_image_3,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
-    relief="flat"
-)
-button_3.place(
-    x=618.0,
-    y=52.0,
-    width=105.0,
-    height=48.0
-)
-
-button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
-button_4 = Button(
-    image=button_image_4,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
-    relief="flat"
-)
-button_4.place(
-    x=618.0,
-    y=52.0,
-    width=105.0,
-    height=48.0
-)
+        self.root.geometry("800x480")
+        self.root.configure(bg = "#FFFFFF")
 
 
-# Spring #x Texts
-canvas.create_text(
-    360.0,
-    381.0,
-    anchor="nw",
-    text="Spring #10",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
+        self.canvas = Canvas(
+            self.root,
+            bg = "#FFFFFF",
+            height = 480,
+            width = 800,
+            bd = 0,
+            highlightthickness = 0,
+            relief = "ridge"
+        )
 
-canvas.create_text(
-    360.0,
-    291.0,
-    anchor="nw",
-    text="Spring #9",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
+        self.canvas.place(x = 0, y = 0)
+        self.canvas.create_rectangle(
+            0.0,
+            0.0,
+            800.0,
+            480.0,
+            fill="#FFFFFF",
+            outline="")
 
-canvas.create_text(
-    360.0,
-    201.0,
-    anchor="nw",
-    text="Spring #8",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-canvas.create_text(
-    360.0,
-    111.0,
-    anchor="nw",
-    text="Spring #7",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-canvas.create_text(
-    360.0,
-    21.0,
-    anchor="nw",
-    text="Spring #6",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-canvas.create_text(
-    103.0,
-    382.0,
-    anchor="nw",
-    text="Spring #5",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-canvas.create_text(
-    103.0,
-    293.0,
-    anchor="nw",
-    text="Spring #4",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-canvas.create_text(
-    103.0,
-    203.0,
-    anchor="nw",
-    text="Spring #3",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-canvas.create_text(
-    103.0,
-    113.0,
-    anchor="nw",
-    text="Spring #2",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-canvas.create_text(
-    103.0,
-    21.0,
-    anchor="nw",
-    text="Spring #1",
-    fill="#FFFFFF",
-    font=("Inter Bold", 14 * -1)
-)
-
-#Create Rectangles for number of cycles
-
-canvas.create_rectangle(
-    53.0,
-    43.0,
-    233.0,
-    83.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    53.0,
-    135.0,
-    233.0,
-    175.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    53.0,
-    225.0,
-    233.0,
-    265.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    53.0,
-    315.0,
-    233.0,
-    355.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    53.0,
-    404.0,
-    233.0,
-    444.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    310.0,
-    43.0,
-    490.0,
-    83.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    310.0,
-    135.0,
-    490.0,
-    175.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    310.0,
-    225.0,
-    490.0,
-    265.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    310.0,
-    315.0,
-    490.0,
-    355.0,
-    fill="#D9D9D9",
-    outline="")
-
-canvas.create_rectangle(
-    310.0,
-    404.0,
-    490.0,
-    444.0,
-    fill="#D9D9D9",
-    outline="")
-
-#Create Number of cycles texts
-cycles1 = canvas.create_text(
-    143.0,
-    61.0,
-    anchor="center",
-    text="1",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles2 = canvas.create_text(
-    143.0,
-    153.0,
-    anchor="center",
-    text="2",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles3 = canvas.create_text(
-    143.0,
-    243.0,
-    anchor="center",
-    text="3",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles4 = canvas.create_text(
-    143.0,
-    333.0,
-    anchor="center",
-    text="4",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles5 = canvas.create_text(
-    143.0,
-    422.0,
-    anchor="center",
-    text="Cycles",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles6 = canvas.create_text(
-    400.0,
-    61.0,
-    anchor="center",
-    text="Cycles",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles7 = canvas.create_text(
-    400.0,
-    153.0,
-    anchor="center",
-    text="Cycles",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles8 = canvas.create_text(
-    400.0,
-    243.0,
-    anchor="center",
-    text="Cycles",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles9 = canvas.create_text(
-    400.0,
-    332.0,
-    anchor="center",
-    text="Cycles",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
-
-cycles10 = canvas.create_text(
-    400.0,
-    422.0,
-    anchor="center",
-    text="Cycles",
-    fill="#000000",
-    font=("Inter Bold", 14 * -1)
-)
+        self.canvas.create_rectangle(
+            0.0,
+            0.0,
+            540.0,
+            480.0,
+            fill="#009B4A",
+            outline="")
 
 
-window.resizable(False, False)
-window.mainloop()
+
+        # Spring #x Texts
+        self.canvas.create_text(
+            360.0,
+            381.0,
+            anchor="nw",
+            text="Spring #10",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            360.0,
+            291.0,
+            anchor="nw",
+            text="Spring #9",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            360.0,
+            201.0,
+            anchor="nw",
+            text="Spring #8",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            360.0,
+            111.0,
+            anchor="nw",
+            text="Spring #7",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            360.0,
+            21.0,
+            anchor="nw",
+            text="Spring #6",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            103.0,
+            382.0,
+            anchor="nw",
+            text="Spring #5",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            103.0,
+            293.0,
+            anchor="nw",
+            text="Spring #4",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            103.0,
+            203.0,
+            anchor="nw",
+            text="Spring #3",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            103.0,
+            113.0,
+            anchor="nw",
+            text="Spring #2",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.canvas.create_text(
+            103.0,
+            21.0,
+            anchor="nw",
+            text="Spring #1",
+            fill="#FFFFFF",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        #Create Rectangles for number of cycles
+
+        self.canvas.create_rectangle(
+            53.0,
+            43.0,
+            233.0,
+            83.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            53.0,
+            135.0,
+            233.0,
+            175.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            53.0,
+            225.0,
+            233.0,
+            265.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            53.0,
+            315.0,
+            233.0,
+            355.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            53.0,
+            404.0,
+            233.0,
+            444.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            310.0,
+            43.0,
+            490.0,
+            83.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            310.0,
+            135.0,
+            490.0,
+            175.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            310.0,
+            225.0,
+            490.0,
+            265.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            310.0,
+            315.0,
+            490.0,
+            355.0,
+            fill="#D9D9D9",
+            outline="")
+
+        self.canvas.create_rectangle(
+            310.0,
+            404.0,
+            490.0,
+            444.0,
+            fill="#D9D9D9",
+            outline="")
+
+        #Create Number of cycles texts
+        self.cycles1 = self.canvas.create_text(
+            143.0,
+            61.0,
+            anchor="center",
+            text="1",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles2 = self.canvas.create_text(
+            143.0,
+            153.0,
+            anchor="center",
+            text="2",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles3 = self.canvas.create_text(
+            143.0,
+            243.0,
+            anchor="center",
+            text="3",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles4 = self.canvas.create_text(
+            143.0,
+            333.0,
+            anchor="center",
+            text="4",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles5 = self.canvas.create_text(
+            143.0,
+            422.0,
+            anchor="center",
+            text="Cycles",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles6 = self.canvas.create_text(
+            400.0,
+            61.0,
+            anchor="center",
+            text="Cycles",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles7 = self.canvas.create_text(
+            400.0,
+            153.0,
+            anchor="center",
+            text="Cycles",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles8 = self.canvas.create_text(
+            400.0,
+            243.0,
+            anchor="center",
+            text="Cycles",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles9 = self.canvas.create_text(
+            400.0,
+            332.0,
+            anchor="center",
+            text="Cycles",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        self.cycles10 = self.canvas.create_text(
+            400.0,
+            422.0,
+            anchor="center",
+            text="Cycles",
+            fill="#000000",
+            font=("Inter Bold", 14 * -1)
+        )
+
+        
+        self.button_image_1 = PhotoImage(
+            file=relative_to_assets("button_1.png"))
+        self.button_1 = Button(
+            image=self.button_image_1,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: self.change_text('botao 1'),
+            relief="flat"
+        )
+        self.button_1.place(
+            x=603.0,
+            y=216.0,
+            width=135.0,
+            height=48.0
+        )
+
+        self.button_image_2 = PhotoImage(
+            file=relative_to_assets("button_2.png"))
+        self.button_2 = Button(
+            image=self.button_image_2,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: self.change_text("button 2"),
+            relief="flat"
+        )
+        self.button_2.place(
+            x=603.0,
+            y=162.0,
+            width=135.0,
+            height=48.0
+        )
+
+        self.button_image_3 = PhotoImage(
+            file=relative_to_assets("button_3.png"))
+        self.button_3 = Button(
+            image=self.button_image_3,
+            borderwidth=0,
+            highlightthickness=0,
+            command=self.StopInterruption,
+            relief="flat"
+        )
+        self.button_3.place(
+            x=555.0,
+            y=52.0,
+            width=105.0,
+            height=48.0
+        )
+
+        self.button_image_4 = PhotoImage(
+            file=relative_to_assets("button_4.png"))
+        self.button_4 = Button(
+            image=self.button_image_4,
+            borderwidth=0,
+            highlightthickness=0,
+            command=self.StartInterruption,
+            relief="flat"
+        )
+        self.button_4.place(
+            x=680.0,
+            y=52.0,
+            width=105.0,
+            height=48.0
+        )
+        
+        self.generator = InterruptionGenerator(interval=0.5, window=self)
+
+        self.root.resizable(False, False)
+    
+    
+    
+    def print(self):
+        print("lasldk")
+
+    def change_text(self, text ='original'):
+        # Change the text of the text object to the provided new_text
+        self.canvas.itemconfig(self.cycles1, text=text)
+
+    def Run(self):
+        self.root.mainloop()
+
+    def StopInterruption(self):
+        self.generator.stop()
+
+    def StartInterruption(self):
+        self.generator.resetCounter()
+        self.generator.start()
