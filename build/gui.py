@@ -11,7 +11,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\joaol\OneDrive\Documents\FadigaDeMolas\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\joaobo\Documents\FadigaDeMolas\build\assets\frame0")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -51,64 +51,64 @@ canvas.create_rectangle(
     fill="#009B4A",
     outline="")
 
-button_test_mode_1_image = PhotoImage(
+button_image_1 = PhotoImage(
     file=relative_to_assets("button_1.png"))
-button_test_mode_ = Button(
-    image=button_test_mode_1_image,
+button_1 = Button(
+    image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_test_mode_1 clicked"),
+    command=lambda: print("button_1 clicked"),
     relief="flat"
 )
-button_test_mode_.place(
+button_1.place(
     x=603.0,
     y=216.0,
     width=135.0,
     height=48.0
 )
 
-button_test_mode_2_image = PhotoImage(
+button_image_2 = PhotoImage(
     file=relative_to_assets("button_2.png"))
-button_test_mode_2 = Button(
-    image=button_test_mode_2_image,
+button_2 = Button(
+    image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_test_mode_2 clicked"),
+    command=lambda: print("button_2 clicked"),
     relief="flat"
 )
-button_test_mode_2.place(
+button_2.place(
     x=603.0,
     y=216.0,
     width=135.0,
     height=48.0
 )
 
-button_stop_image = PhotoImage(
+button_image_3 = PhotoImage(
     file=relative_to_assets("button_3.png"))
-button_stop = Button(
-    image=button_stop_image,
+button_3 = Button(
+    image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_stop clicked"),
+    command=lambda: print("button_3 clicked"),
     relief="flat"
 )
-button_stop.place(
+button_3.place(
     x=618.0,
     y=52.0,
     width=105.0,
     height=48.0
 )
 
-button_start_image = PhotoImage(
+button_image_4 = PhotoImage(
     file=relative_to_assets("button_4.png"))
-button_start = Button(
-    image=button_start_image,
+button_4 = Button(
+    image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_start clicked"),
+    command=lambda: print("button_4 clicked"),
     relief="flat"
 )
-button_start.place(
+button_4.place(
     x=618.0,
     y=52.0,
     width=105.0,
@@ -213,11 +213,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    53.0,
-    51.0,
-    anchor="nw",
-    text="Cycles 1",
+cycles1 = canvas.create_text(
+    143.0,
+    61.0,
+    anchor="center",
+    text="1",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -230,11 +230,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    53.0,
+cycles2 = canvas.create_text(
     143.0,
-    anchor="nw",
-    text="Cycles 2",
+    153.0,
+    anchor="center",
+    text="2",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -247,11 +247,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    53.0,
-    233.0,
-    anchor="nw",
-    text="Cycles 3",
+cycles3 = canvas.create_text(
+    143.0,
+    243.0,
+    anchor="center",
+    text="3",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -264,11 +264,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    53.0,
-    323.0,
-    anchor="nw",
-    text="Cycles 4",
+cycles4 = canvas.create_text(
+    143.0,
+    333.0,
+    anchor="center",
+    text="4",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -281,11 +281,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    53.0,
-    412.0,
-    anchor="nw",
-    text="Cycles 5",
+cycles5 = canvas.create_text(
+    143.0,
+    422.0,
+    anchor="center",
+    text="Cycles",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -298,11 +298,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    310.0,
-    51.0,
-    anchor="nw",
-    text="Cycles 6",
+cycles6 = canvas.create_text(
+    400.0,
+    61.0,
+    anchor="center",
+    text="Cycles",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -315,11 +315,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    310.0,
-    143.0,
-    anchor="nw",
-    text="Cycles 7",
+cycles7 = canvas.create_text(
+    400.0,
+    153.0,
+    anchor="center",
+    text="Cycles",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -332,11 +332,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    310.0,
-    233.0,
-    anchor="nw",
-    text="Cycles 8",
+cycles8 = canvas.create_text(
+    400.0,
+    243.0,
+    anchor="center",
+    text="Cycles",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -349,11 +349,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    310.0,
-    322.0,
-    anchor="nw",
-    text="Cycles 9",
+cycles9 = canvas.create_text(
+    400.0,
+    332.0,
+    anchor="center",
+    text="Cycles",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
@@ -366,11 +366,11 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
-canvas.create_text(
-    310.0,
-    412.0,
-    anchor="nw",
-    text="Cycles 10",
+cycles10 = canvas.create_text(
+    400.0,
+    422.0,
+    anchor="center",
+    text="Cycles",
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
