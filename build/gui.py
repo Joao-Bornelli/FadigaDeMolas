@@ -115,6 +115,8 @@ button_4.place(
     height=48.0
 )
 
+
+# Spring #x Texts
 canvas.create_text(
     360.0,
     381.0,
@@ -205,6 +207,8 @@ canvas.create_text(
     font=("Inter Bold", 14 * -1)
 )
 
+#Create Rectangles for number of cycles
+
 canvas.create_rectangle(
     53.0,
     43.0,
@@ -213,6 +217,79 @@ canvas.create_rectangle(
     fill="#D9D9D9",
     outline="")
 
+canvas.create_rectangle(
+    53.0,
+    135.0,
+    233.0,
+    175.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    53.0,
+    225.0,
+    233.0,
+    265.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    53.0,
+    315.0,
+    233.0,
+    355.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    53.0,
+    404.0,
+    233.0,
+    444.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    310.0,
+    43.0,
+    490.0,
+    83.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    310.0,
+    135.0,
+    490.0,
+    175.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    310.0,
+    225.0,
+    490.0,
+    265.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    310.0,
+    315.0,
+    490.0,
+    355.0,
+    fill="#D9D9D9",
+    outline="")
+
+canvas.create_rectangle(
+    310.0,
+    404.0,
+    490.0,
+    444.0,
+    fill="#D9D9D9",
+    outline="")
+
+#Create Number of cycles texts
 cycles1 = canvas.create_text(
     143.0,
     61.0,
@@ -221,14 +298,6 @@ cycles1 = canvas.create_text(
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
-
-canvas.create_rectangle(
-    53.0,
-    135.0,
-    233.0,
-    175.0,
-    fill="#D9D9D9",
-    outline="")
 
 cycles2 = canvas.create_text(
     143.0,
@@ -239,14 +308,6 @@ cycles2 = canvas.create_text(
     font=("Inter Bold", 14 * -1)
 )
 
-canvas.create_rectangle(
-    53.0,
-    225.0,
-    233.0,
-    265.0,
-    fill="#D9D9D9",
-    outline="")
-
 cycles3 = canvas.create_text(
     143.0,
     243.0,
@@ -255,14 +316,6 @@ cycles3 = canvas.create_text(
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
-
-canvas.create_rectangle(
-    53.0,
-    315.0,
-    233.0,
-    355.0,
-    fill="#D9D9D9",
-    outline="")
 
 cycles4 = canvas.create_text(
     143.0,
@@ -273,14 +326,6 @@ cycles4 = canvas.create_text(
     font=("Inter Bold", 14 * -1)
 )
 
-canvas.create_rectangle(
-    53.0,
-    404.0,
-    233.0,
-    444.0,
-    fill="#D9D9D9",
-    outline="")
-
 cycles5 = canvas.create_text(
     143.0,
     422.0,
@@ -289,14 +334,6 @@ cycles5 = canvas.create_text(
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
-
-canvas.create_rectangle(
-    310.0,
-    43.0,
-    490.0,
-    83.0,
-    fill="#D9D9D9",
-    outline="")
 
 cycles6 = canvas.create_text(
     400.0,
@@ -307,14 +344,6 @@ cycles6 = canvas.create_text(
     font=("Inter Bold", 14 * -1)
 )
 
-canvas.create_rectangle(
-    310.0,
-    135.0,
-    490.0,
-    175.0,
-    fill="#D9D9D9",
-    outline="")
-
 cycles7 = canvas.create_text(
     400.0,
     153.0,
@@ -323,14 +352,6 @@ cycles7 = canvas.create_text(
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
-
-canvas.create_rectangle(
-    310.0,
-    225.0,
-    490.0,
-    265.0,
-    fill="#D9D9D9",
-    outline="")
 
 cycles8 = canvas.create_text(
     400.0,
@@ -341,14 +362,6 @@ cycles8 = canvas.create_text(
     font=("Inter Bold", 14 * -1)
 )
 
-canvas.create_rectangle(
-    310.0,
-    315.0,
-    490.0,
-    355.0,
-    fill="#D9D9D9",
-    outline="")
-
 cycles9 = canvas.create_text(
     400.0,
     332.0,
@@ -358,14 +371,6 @@ cycles9 = canvas.create_text(
     font=("Inter Bold", 14 * -1)
 )
 
-canvas.create_rectangle(
-    310.0,
-    404.0,
-    490.0,
-    444.0,
-    fill="#D9D9D9",
-    outline="")
-
 cycles10 = canvas.create_text(
     400.0,
     422.0,
@@ -374,5 +379,7 @@ cycles10 = canvas.create_text(
     fill="#000000",
     font=("Inter Bold", 14 * -1)
 )
+
+
 window.resizable(False, False)
 window.mainloop()
