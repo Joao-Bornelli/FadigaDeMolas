@@ -415,7 +415,7 @@ class MainWindow:
     def change_text(self):
         spring = self.cyclesText[0]
         spring.SetCycles(spring.GetCycles() + 1)
-        self.UpdateInterface(spring,spring.GetCycles() + 1)
+        self.UpdateInterface(spring,spring.GetCycles())
 
 
 
