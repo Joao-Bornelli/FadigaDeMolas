@@ -240,14 +240,19 @@ class MainWindow:
         # Create Number of cycles texts and append them to a list
         # self.cyclesText.append(self.canvas.create_text(
         #     143.0,
-        #     61.0,
+        #     63.0,
         #     anchor="center",
         #     text="1",
         #     fill="#000000",
         #     font=("Inter Bold", 14 * -1)
         # ))
         
-        self.cyclesText.append(Spring(143,61,self.canvas))
+        for leftColumn in range(63,424,90):
+            print(leftColumn)
+            self.cyclesText.append(Spring(143,leftColumn,self.canvas))
+            
+        for rightColumn in range(63,424,90):
+            self.cyclesText.append(Spring(400,rightColumn,self.canvas))
         
         
         # self.cyclesText.append(self.spring1)
@@ -281,7 +286,7 @@ class MainWindow:
 
         # self.cyclesText.append(self.canvas.create_text(
         #     143.0,
-        #     422.0,
+        #     423.0,
         #     anchor="center",
         #     text="Cycles",
         #     fill="#000000",
@@ -413,16 +418,16 @@ class MainWindow:
 
     # Function to alter number of cycles text
     def change_text(self):
-        spring = self.cyclesText[0]
-        spring.SetCycles(spring.GetCycles() + 1)
-        self.UpdateInterface(spring,spring.GetCycles())
+        for spring in self.cyclesText:
+            spring.SetCycles(spring.GetCycles() + 1)
+            self.UpdateInterface(spring,spring.GetCycles())
 
 
 
     def ResetCounter(self):
-        spring = self.cyclesText[0]
-        spring.SetCycles(0)
-        self.UpdateInterface(spring,spring.GetCycles())
+        for spring in self.cyclesText:
+            spring.SetCycles(0)
+            self.UpdateInterface(spring,spring.GetCycles())
     
     # Start of the interface running loop
     def Run(self):
