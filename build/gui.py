@@ -387,6 +387,7 @@ class MainWindow:
         #Interruption Generator
         self.generator = InterruptionGenerator(interval=0.5, window=self)
 
+        # self.root.attributes("-fullscreen",True)
         self.root.resizable(False, False)
 
     def change_text(self, text ='original'):
