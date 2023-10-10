@@ -6,7 +6,6 @@ class InterruptionGenerator:
         self.interval = interval
         self.timer = None
         self.is_running = False
-        self.interruptionNumber = 0
         self.window = window
 
     
@@ -15,8 +14,7 @@ class InterruptionGenerator:
         if self.is_running:  # Check if it's still running before rescheduling
             self.timer = threading.Timer(self.interval, self.interrupt)
             self.timer.start()
-            self.interruptionNumber+=1
-            self.window.change_text(str(self.interruptionNumber))
+            self.window.change_text()
 
     def start(self):
         if not self.is_running:

@@ -5,6 +5,8 @@
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from timed_interruption import InterruptionGenerator
+from build.Spring import Spring
+
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\joaobo\Documents\FadigaDeMolas\build\assets\frame0")
@@ -234,96 +236,102 @@ class MainWindow:
             fill="#D9D9D9",
             outline="")
 
+
         # Create Number of cycles texts and append them to a list
-        self.cyclesText.append(self.canvas.create_text(
-            143.0,
-            61.0,
-            anchor="center",
-            text="1",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     143.0,
+        #     61.0,
+        #     anchor="center",
+        #     text="1",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
+        
+        self.cyclesText.append(Spring(143,61,self.canvas))
+        
+        
+        # self.cyclesText.append(self.spring1)
 
-        self.cyclesText.append(self.canvas.create_text(
-            143.0,
-            153.0,
-            anchor="center",
-            text="2",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     143.0,
+        #     153.0,
+        #     anchor="center",
+        #     text="2",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            143.0,
-            243.0,
-            anchor="center",
-            text="3",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     143.0,
+        #     243.0,
+        #     anchor="center",
+        #     text="3",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            143.0,
-            333.0,
-            anchor="center",
-            text="4",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     143.0,
+        #     333.0,
+        #     anchor="center",
+        #     text="4",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            143.0,
-            422.0,
-            anchor="center",
-            text="Cycles",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     143.0,
+        #     422.0,
+        #     anchor="center",
+        #     text="Cycles",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            400.0,
-            61.0,
-            anchor="center",
-            text="Cycles",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     400.0,
+        #     61.0,
+        #     anchor="center",
+        #     text="Cycles",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            400.0,
-            153.0,
-            anchor="center",
-            text="Cycles",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     400.0,
+        #     153.0,
+        #     anchor="center",
+        #     text="Cycles",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            400.0,
-            243.0,
-            anchor="center",
-            text="Cycles",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     400.0,
+        #     243.0,
+        #     anchor="center",
+        #     text="Cycles",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            400.0,
-            332.0,
-            anchor="center",
-            text="Cycles",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     400.0,
+        #     332.0,
+        #     anchor="center",
+        #     text="Cycles",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
-        self.cyclesText.append(self.canvas.create_text(
-            400.0,
-            422.0,
-            anchor="center",
-            text="Cycles",
-            fill="#000000",
-            font=("Inter Bold", 14 * -1)
-        ))
+        # self.cyclesText.append(self.canvas.create_text(
+        #     400.0,
+        #     422.0,
+        #     anchor="center",
+        #     text="Cycles",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # ))
 
 
         # Create Buttons 
@@ -335,7 +343,7 @@ class MainWindow:
             image=self.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.change_text('botao 1'),
+            command=self.ResetCounter,
             relief="flat"
         )
         self.button_1.place(
@@ -404,15 +412,21 @@ class MainWindow:
 
 
     # Function to alter number of cycles text
-    def change_text(self, text ='original'):
-        for i in self.cyclesText:
-            self.canvas.itemconfig(i, text=text)
+    def change_text(self):
+        spring = self.cyclesText[0]
+        spring.SetCycles(spring.GetCycles() + 1)
+        self.UpdateInterface(spring,spring.GetCycles() + 1)
 
+
+
+    def ResetCounter(self):
+        spring = self.cyclesText[0]
+        spring.SetCycles(0)
+        self.UpdateInterface(spring,spring.GetCycles())
+    
     # Start of the interface running loop
     def Run(self):
         self.root.mainloop()
-    
-
 
     # Start the interruption
     def StartInterruption(self):
@@ -422,4 +436,7 @@ class MainWindow:
     # Stop the interruption
     def StopInterruption(self):
         self.generator.stop()
-        
+    
+    def UpdateInterface(self, spring, number):
+        self.canvas.itemconfig(spring.textBox, text=str(number))
+          
