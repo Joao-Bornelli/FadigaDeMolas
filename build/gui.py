@@ -370,7 +370,7 @@ class MainWindow:
             image=self.button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=self.BreakSpring1,
+            command=print(""),
             relief="flat"
         )
         self.button_2.place(
