@@ -8,6 +8,7 @@ class Spring:
         self.canvas = canvas
         self.cycleNumber = 0
         self.isBroken = False
+        self.GPIOpin = 0
         
         self.textBox = self.canvas.create_text(
             Xposition, #143.0,
@@ -33,4 +34,5 @@ class Spring:
         return self.isBroken
     
     def CreateInterruption(self, pin):
-        pass
+        self.GPIOpin = pin
+        RaspGPIO(pin)
