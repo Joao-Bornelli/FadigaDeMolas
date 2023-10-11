@@ -8,6 +8,7 @@ from timed_interruption import InterruptionGenerator
 from build.Spring import Spring
 
 
+
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\joaobo\Documents\FadigaDeMolas\build\assets\frame0")
 
@@ -411,7 +412,13 @@ class MainWindow:
         
         # Interruption Generator
         self.generator = InterruptionGenerator(interval=0.5, window=self)
-
+        
+        raspberryPins = [26,19,13,6,5,21,20,16,12]
+        
+        for spring, pin in zip(self.cyclesText,raspberryPins):
+            spring.CreateInterruption(pin)
+        
+        
         # self.root.attributes("-fullscreen",True)
         self.root.resizable(False, False)
 

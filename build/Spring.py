@@ -1,3 +1,5 @@
+from GPIO import RaspGPIO
+
 class Spring:
     
     def __init__(self, Xposition, Yposition, canvas) -> None:
@@ -30,3 +32,5 @@ class Spring:
     def GetBrokenStatus(self):
         return self.isBroken
     
+    def CreateInterruption(self, pin):
+        pass
