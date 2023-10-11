@@ -5,7 +5,7 @@ class Spring:
         self.Yposition = Yposition
         self.canvas = canvas
         self.cycleNumber = 0
-        
+        self.isBroken = False
         
         self.textBox = self.canvas.create_text(
             Xposition, #143.0,
@@ -23,5 +23,10 @@ class Spring:
     def GetCycles(self):
         return self.cycleNumber   
     
+    def SetBrokenStatus(self, status):
+        self.isBroken = status
+        print(self.GetBrokenStatus())
     
+    def GetBrokenStatus(self):
+        return self.isBroken
     

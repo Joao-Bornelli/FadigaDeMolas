@@ -365,7 +365,7 @@ class MainWindow:
             image=self.button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.change_text("button 2"),
+            command=self.BreakSpring1,
             relief="flat"
         )
         self.button_2.place(
@@ -420,7 +420,8 @@ class MainWindow:
     def change_text(self):
         for spring in self.cyclesText:
             spring.SetCycles(spring.GetCycles() + 1)
-            self.UpdateInterface(spring,spring.GetCycles())
+            if not spring.GetBrokenStatus():
+                self.UpdateInterface(spring,spring.GetCycles())
 
 
 
@@ -428,6 +429,7 @@ class MainWindow:
         for spring in self.cyclesText:
             spring.SetCycles(0)
             self.UpdateInterface(spring,spring.GetCycles())
+            spring.SetBrokenStatus(False)
     
     # Start of the interface running loop
     def Run(self):
@@ -444,4 +446,9 @@ class MainWindow:
     
     def UpdateInterface(self, spring, number):
         self.canvas.itemconfig(spring.textBox, text=str(number))
-          
+    
+    
+    
+    def BreakSpring1(self):
+        spring = self.cyclesText[0]
+        spring.SetBrokenStatus(True)
