@@ -415,7 +415,7 @@ class MainWindow:
         )
         
         # Interruption Generator
-        self.generator = InterruptionGenerator(interval=0.5, window=self)
+        # self.generator = InterruptionGenerator(interval=0.5, window=self)
         
         # Create the Interruptions for the Springs
         springGPIOPins = [26,19,13,6,5,21,20,16]
@@ -453,12 +453,16 @@ class MainWindow:
 
     # Start the interruption
     def StartInterruption(self):
-        self.generator.resetCounter()
-        self.generator.start()
+        self.resetCounter()
+        for interruption in self.springsInterruptions:
+            interruption.StartInterruption()
+        self.cycleCounter.StartInterruption()
 
     # Stop the interruption
     def StopInterruption(self):
-        self.generator.stop()
+        for interruption in self.springsInterruptions:
+            interruption.StopInterruption()
+        self.cycleCounter.StopInterruption()
     
     def UpdateInterface(self, spring, number):
         self.canvas.itemconfig(spring.textBox, text=str(number))

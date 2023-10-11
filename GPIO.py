@@ -7,6 +7,7 @@ class RaspGPIO:
         self.spring = spring
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.GPIOpin,GPIO.IN,pull_up_down = GPIO.PUD_UP)
+        self.isRunning = False
         
     
         
@@ -21,6 +22,13 @@ class RaspGPIO:
         GPIO.add_event_detect(self.GPIOpin,GPIO.FALLING,callback = self.CounterInterruption, bouncetime = 200)
   
   
+    def StartInterruption(self):
+        self.isRunning = True
+        
+    def StopInterruption(self):
+        self.isRunning = False
+    
+    
   
     def SpringInterruption(self):
         print("Interruption" + str(self.GPIOpin))
