@@ -21,18 +21,17 @@ class RaspGPIO:
     def AddCounterEvent(self):
         GPIO.add_event_detect(self.GPIOpin,GPIO.FALLING,callback = self.CounterInterruption, bouncetime = 200)
   
-  
+    def SpringInterruption(self, channel):
+        print("Interruption" + str(self.GPIOpin))
+        self.window.BreakSpring(self.spring)
+        
+    def CounterInterruption(self,channel):
+        self.window.change_text()
+    
+    
+    
     def StartInterruption(self):
         self.isRunning = True
         
     def StopInterruption(self):
         self.isRunning = False
-    
-    
-  
-    def SpringInterruption(self):
-        print("Interruption" + str(self.GPIOpin))
-        self.window.BreakSpring(self.spring)
-        
-    def CounterInterruption(self):
-        self.window.change_text()

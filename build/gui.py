@@ -428,6 +428,8 @@ class MainWindow:
         self.cycleCounter = RaspGPIO(12,window=self)
         self.cycleCounter.AddCounterEvent()
         
+        
+        
         # self.root.attributes("-fullscreen",True)
         self.root.resizable(False, False)
 
@@ -453,7 +455,7 @@ class MainWindow:
 
     # Start the interruption
     def StartInterruption(self):
-        self.resetCounter()
+        self.ResetCounter()
         for interruption in self.springsInterruptions:
             interruption.StartInterruption()
         self.cycleCounter.StartInterruption()
