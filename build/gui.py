@@ -6,7 +6,7 @@ from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from timed_interruption import InterruptionGenerator
 from build.Spring import Spring
-
+from GPIO import RaspGPIO
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -45,6 +45,10 @@ class MainWindow:
         
         # List of cycles attributes
         self.cyclesText = []
+        
+        
+        self.springsInterruptions = []
+        
 
         # Create background squares
         self.canvas.create_rectangle(
@@ -413,11 +417,16 @@ class MainWindow:
         # Interruption Generator
         self.generator = InterruptionGenerator(interval=0.5, window=self)
         
-        raspberryPins = [26,19,13,6,5,21,20,16,12]
-        
-        for spring, pin in zip(self.cyclesText,raspberryPins):
-            spring.CreateInterruption(pin)
-        
+        # Create the Interruptions for the Springs
+        springGPIOPins = [26,19,13,6,5,21,20,16]
+
+        for i in range(springGPIOPins):
+            self.springsInterruptions.append(RaspGPIO(springGPIOPins[i],window=self, spring=self.cyclesText[i]))
+            self.springsInterruptions[i].AddSpringEvent()
+
+        # Create Interruption for the cycle Counter
+        self.cycleCounter = RaspGPIO(12,window=self)
+        self.cycleCounter.AddCounterEvent()
         
         # self.root.attributes("-fullscreen",True)
         self.root.resizable(False, False)
@@ -455,7 +464,5 @@ class MainWindow:
         self.canvas.itemconfig(spring.textBox, text=str(number))
     
     
-    
-    def BreakSpring1(self):
-        spring = self.cyclesText[0]
+    def BreakSpring(self,spring):
         spring.SetBrokenStatus(True)

@@ -1,5 +1,3 @@
-from GPIO import RaspGPIO
-
 class Spring:
     
     def __init__(self, Xposition, Yposition, canvas) -> None:
@@ -8,7 +6,6 @@ class Spring:
         self.canvas = canvas
         self.cycleNumber = 0
         self.isBroken = False
-        self.GPIOpin = 0
         
         self.textBox = self.canvas.create_text(
             Xposition, #143.0,
@@ -32,7 +29,3 @@ class Spring:
     
     def GetBrokenStatus(self):
         return self.isBroken
-    
-    def CreateInterruption(self, pin):
-        self.GPIOpin = pin
-        RaspGPIO(pin)
