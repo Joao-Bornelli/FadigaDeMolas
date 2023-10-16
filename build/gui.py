@@ -15,8 +15,8 @@ from GPIO import RaspGPIO
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"\home\fadiga\Documents\FadigaDeMolas\build\assets\frame0")
-
+ASSETS_PATH = OUTPUT_PATH / Path(r"/home/fadiga/Documents/FadigaDeMolas/build/assets/frame0")
+print(ASSETS_PATH)
 # if sys.platform.startswith('linux'):
 #     ASSETS_PATH = OUTPUT_PATH / Path(r"\home\fadiga\Documents\FadigaDeMolas\build\assets\frame0")
 # elif sys.platform == 'win32':
