@@ -169,71 +169,71 @@ class MainWindow:
             fill="#D9D9D9",
             outline="")
 
-        self.canvas.create_rectangle(
-            53.0,
-            135.0,
-            233.0,
-            175.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     53.0,
+        #     135.0,
+        #     233.0,
+        #     175.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
-            53.0,
-            225.0,
-            233.0,
-            265.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     53.0,
+        #     225.0,
+        #     233.0,
+        #     265.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
-            53.0,
-            315.0,
-            233.0,
-            355.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     53.0,
+        #     315.0,
+        #     233.0,
+        #     355.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
-            53.0,
-            404.0,
-            233.0,
-            444.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     53.0,
+        #     404.0,
+        #     233.0,
+        #     444.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
-            310.0,
-            43.0,
-            490.0,
-            83.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     310.0,
+        #     43.0,
+        #     490.0,
+        #     83.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
-            310.0,
-            135.0,
-            490.0,
-            175.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     310.0,
+        #     135.0,
+        #     490.0,
+        #     175.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
-            310.0,
-            225.0,
-            490.0,
-            265.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     310.0,
+        #     225.0,
+        #     490.0,
+        #     265.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
-            310.0,
-            315.0,
-            490.0,
-            355.0,
-            fill="#D9D9D9",
-            outline="")
+        # self.canvas.create_rectangle(
+        #     310.0,
+        #     315.0,
+        #     490.0,
+        #     355.0,
+        #     fill="#D9D9D9",
+        #     outline="")
 
-        self.canvas.create_rectangle(
+        # self.canvas.create_rectangle(
             310.0,
             404.0,
             490.0,
