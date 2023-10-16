@@ -433,7 +433,7 @@ class MainWindow:
         # Create the Interruptions for the Springs
         springGPIOPins = [26,19,13,6,5,21,20,16]
 
-        for i in range(springGPIOPins):
+        for i in range(len(springGPIOPins)):
             self.springsInterruptions.append(RaspGPIO(springGPIOPins[i],window=self, spring=self.cyclesText[i]))
             self.springsInterruptions[i].AddSpringEvent()
 
