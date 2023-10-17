@@ -444,7 +444,7 @@ class MainWindow:
         self.cycleCounter = RaspGPIO(12,window=self)
         self.cycleCounter.AddCounterEvent()
         
-        
+        #Add Nidec-GA Logo to the UI
         self.image_image_1 = PhotoImage(
             file=relative_to_assets("image_1.png"))
         image_1 = self.canvas.create_image(
@@ -454,7 +454,7 @@ class MainWindow:
         )
 
         
-        self.statusText = TextBox(600,404,self.canvas)
+        self.statusText = TextBox(670,404,self.canvas)
         self.UpdateInterface(self.statusText,"Idle")
         # self.canvas.create_rectangle(
         #     580.0,
