@@ -369,7 +369,7 @@ class MainWindow:
             image=self.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=self.ResetCounter,
+            command=self.FirstToFailTest,
             relief="flat"
         )
         self.button_1.place(
@@ -386,7 +386,7 @@ class MainWindow:
             image=self.button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=print(""),
+            command=self.UntilFailureTest,
             relief="flat"
         )
         self.button_2.place(
@@ -403,7 +403,7 @@ class MainWindow:
             image=self.button_image_3,
             borderwidth=0,
             highlightthickness=0,
-            command=self.StopInterruption,
+            command=self.StopButton,
             relief="flat"
         )
         self.button_3.place(
@@ -420,7 +420,7 @@ class MainWindow:
             image=self.button_image_4,
             borderwidth=0,
             highlightthickness=0,
-            command=self.StartInterruption,
+            command=self.StartButton,
             relief="flat"
         )
         self.button_4.place(
@@ -501,14 +501,14 @@ class MainWindow:
         self.root.mainloop()
 
     # Start the interruption
-    def StartInterruption(self):
+    def StartButton(self):
         self.ResetCounter()
         for interruption in self.springsInterruptions:
             interruption.StartInterruption()
         self.cycleCounter.StartInterruption()
 
     # Stop the interruption
-    def StopInterruption(self):
+    def StopButton(self):
         for interruption in self.springsInterruptions:
             interruption.StopInterruption()
         self.cycleCounter.StopInterruption()
@@ -519,3 +519,10 @@ class MainWindow:
     
     def BreakSpring(self,spring):
         spring.SetBrokenStatus(True)
+        
+        
+    def UntilFailureTest(self):
+        self.UpdateInterface(self.statusText,"Until Failure Running")
+    
+    def FirstToFailTest(self):
+        self.UpdateInterface(self.statusText,"First To Fail Running")
