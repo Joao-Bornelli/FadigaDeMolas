@@ -370,9 +370,9 @@ class MainWindow:
             relief="flat"
         )
         self.button_1.place(
-            x=603.0,
-            y=162.0,
-            width=135.0,
+            x=683.0,
+            y=287.0,
+            width=105.0,
             height=48.0
         )
 
@@ -387,9 +387,9 @@ class MainWindow:
             relief="flat"
         )
         self.button_2.place(
-            x=603.0,
-            y=226.0,
-            width=135.0,
+            x=552.0,
+            y=287.0,
+            width=105.0,
             height=48.0
         )
         
@@ -404,8 +404,8 @@ class MainWindow:
             relief="flat"
         )
         self.button_3.place(
-            x=555.0,
-            y=52.0,
+            x=683.0,
+            y=139.0,
             width=105.0,
             height=48.0
         )
@@ -421,8 +421,8 @@ class MainWindow:
             relief="flat"
         )
         self.button_4.place(
-            x=680.0,
-            y=52.0,
+            x=552.0,
+            y=139.0,
             width=105.0,
             height=48.0
         )
