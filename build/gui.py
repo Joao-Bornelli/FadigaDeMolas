@@ -444,7 +444,7 @@ class MainWindow:
         
         image_image_1 = PhotoImage(
         file=relative_to_assets("image_1.png"))
-        image_1 = canvas.create_image(
+        image_1 = self.canvas.create_image(
             670.0,
             43.0,
             image=image_image_1
