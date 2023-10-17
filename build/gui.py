@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from timed_interruption import InterruptionGenerator
-from build.Spring import TextBox
+from build.TextBox import TextBox
 from GPIO import RaspGPIO
 
 
