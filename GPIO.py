@@ -27,6 +27,7 @@ class RaspGPIO:
         
     def CounterInterruption(self,channel):
         self.window.change_text()
+        print("pulso")
     
     
     
