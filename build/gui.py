@@ -442,12 +442,12 @@ class MainWindow:
         self.cycleCounter.AddCounterEvent()
         
         
-        image_image_1 = PhotoImage(
-        file=relative_to_assets("image_1.png"))
+        self.image_image_1 = PhotoImage(
+            file=relative_to_assets("image_1.png"))
         image_1 = self.canvas.create_image(
             670.0,
             43.0,
-            image=image_image_1
+            image=self.image_image_1
         )
 
         
