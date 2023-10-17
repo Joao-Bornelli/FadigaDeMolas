@@ -265,6 +265,9 @@ class MainWindow:
         #     font=("Inter Bold", 14 * -1)
         # ))
         
+        
+        
+        #Create Texts Objects For the Cycles number
         for leftColumn in range(63,424,90):
             print(leftColumn)
             self.cyclesText.append(TextBox(143,leftColumn,self.canvas))
@@ -451,7 +454,7 @@ class MainWindow:
         )
 
         
-        self.statusText = TextBox(580,404,self.canvas)
+        self.statusText = TextBox(600,404,self.canvas)
         self.UpdateInterface(self.statusText,"Idle")
         # self.canvas.create_rectangle(
         #     580.0,
