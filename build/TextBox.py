@@ -1,4 +1,4 @@
-class Spring:
+class TextBox:
     
     def __init__(self, Xposition, Yposition, canvas) -> None:
         self.Xposition = Xposition

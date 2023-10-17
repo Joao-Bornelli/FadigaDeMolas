@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from timed_interruption import InterruptionGenerator
-from build.Spring import Spring
+from build.Spring import TextBox
 from GPIO import RaspGPIO
 
 
@@ -267,10 +267,10 @@ class MainWindow:
         
         for leftColumn in range(63,424,90):
             print(leftColumn)
-            self.cyclesText.append(Spring(143,leftColumn,self.canvas))
+            self.cyclesText.append(TextBox(143,leftColumn,self.canvas))
             
         for rightColumn in range(63,424,90):
-            self.cyclesText.append(Spring(400,rightColumn,self.canvas))
+            self.cyclesText.append(TextBox(400,rightColumn,self.canvas))
         
         
         # self.cyclesText.append(self.spring1)
@@ -440,6 +440,37 @@ class MainWindow:
         # Create Interruption for the cycle Counter
         self.cycleCounter = RaspGPIO(12,window=self)
         self.cycleCounter.AddCounterEvent()
+        
+        
+        image_image_1 = PhotoImage(
+        file=relative_to_assets("image_1.png"))
+        image_1 = canvas.create_image(
+            670.0,
+            43.0,
+            image=image_image_1
+        )
+
+        
+        self.statusText = TextBox(580,404,self.canvas)
+        self.UpdateInterface(self.statusText,"Idle")
+        # self.canvas.create_rectangle(
+        #     580.0,
+        #     404.0,
+        #     760.0,
+        #     444.0,
+        #     fill="#D9D9D9",
+        #     outline="")
+
+        # self.canvas.create_text(
+        #     580.0,
+        #     414.0,
+        #     anchor="nw",
+        #     text="status",
+        #     fill="#000000",
+        #     font=("Inter Bold", 14 * -1)
+        # )
+                
+        
         
         
         
