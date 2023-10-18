@@ -434,15 +434,11 @@ class MainWindow:
         # self.generator = InterruptionGenerator(interval=0.5, window=self)
         
         # Create the Interruptions for the Springs
-        springGPIOPins = [26,19,13,6,5,21,20,16]
-
-        for i in range(len(springGPIOPins)):
-            self.springsInterruptions.append(RaspGPIO(springGPIOPins[i],window=self, spring=self.cyclesText[i]))
-            self.springsInterruptions[i].AddSpringEvent()
+        
 
         # Create Interruption for the cycle Counter
         self.cycleCounter = RaspGPIO(12,window=self)
-        self.cycleCounter.AddCounterEvent()
+        
         
         #Add Nidec-GA Logo to the UI
         self.image_image_1 = PhotoImage(
@@ -503,9 +499,19 @@ class MainWindow:
     # Start the interruption
     def StartButton(self):
         self.ResetCounter()
-        for interruption in self.springsInterruptions:
-            interruption.StartInterruption()
+        self.cycleCounter.AddCounterEvent()
         self.cycleCounter.StartInterruption()
+        
+        springGPIOPins = [26,19,13,6,5,21,20,16]
+
+        for i in range(len(springGPIOPins)):
+            self.springsInterruptions.append(RaspGPIO(springGPIOPins[i],window=self, spring=self.cyclesText[i]))
+            self.springsInterruptions[i].AddSpringEvent()
+            self.springsInterruptions[i].StartInterruption()
+        # for interruption in self.springsInterruptions:
+        #     interruption.StartInterruption()
+
+        
 
     # Stop the interruption
     def StopButton(self):

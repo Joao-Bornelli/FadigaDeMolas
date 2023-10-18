@@ -27,10 +27,9 @@ class RaspGPIO:
         self.window.BreakSpring(self.spring)
         
     def CounterInterruption(self,channel):
-        self.window.change_text()
-        print("pulso")
-    
-    
+        if self.isRunning: 
+            self.window.change_text()
+            print("pulso")
     
     def StartInterruption(self):
         self.isRunning = True
