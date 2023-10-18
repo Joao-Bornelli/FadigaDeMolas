@@ -507,7 +507,6 @@ class MainWindow:
             self.ResetCounter()
     
             self.cycleCounter.AddCounterEvent()
-            self.cycleCounter.StartInterruption()
             
             for interruption in self.springsInterruptions:
                 interruption.AddSpringEvent()
