@@ -483,18 +483,18 @@ class MainWindow:
 
     # Function to alter number of cycles text
     def change_text(self):
-        for spring in self.cyclesText:
-            spring.SetCycles(spring.GetCycles() + 1)
-            if not spring.GetBrokenStatus():
-                self.UpdateInterface(spring,spring.GetCycles())
+        for springCycle in self.cyclesText:
+            springCycle.SetCycles(springCycle.GetCycles() + 1)
+            if not springCycle.GetBrokenStatus():
+                self.UpdateInterface(springCycle,springCycle.GetCycles())
 
 
 
     def ResetCounter(self):
-        for spring in self.cyclesText:
-            spring.SetCycles(0)
-            self.UpdateInterface(spring,spring.GetCycles())
-            spring.SetBrokenStatus(False)
+        for springCycle in self.cyclesText:
+            springCycle.SetCycles(0)
+            self.UpdateInterface(springCycle,springCycle.GetCycles())
+            springCycle.SetBrokenStatus(False)
     
     # Start of the interface running loop
     def Run(self):

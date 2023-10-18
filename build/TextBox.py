@@ -22,8 +22,9 @@ class TextBox:
         
         
     def SetBackgroungColor(self, status):
-        if status: self.CreateBackgroundRectangle("#f55151")
-        else: self.CreateBackgroundRectangle()
+        if status: self.canvas.itemconfig(self, fill = "#f55151")
+        # self.CreateBackgroundRectangle("#f55151")
+        else: status: self.canvas.itemconfig(self, fill = "#D9D9D9")
         
     def SetCycles(self, number):
         self.cycleNumber = number
