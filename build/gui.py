@@ -502,10 +502,12 @@ class MainWindow:
     def StartButton(self):
         self.ResetCounter()
         
-        self.cycleCounter.AddCounterEvent().StartInterruption()
+        self.cycleCounter.AddCounterEvent()
+        self.cycleCounter.StartInterruption()
         
         for interruption in self.springsInterruptions:
-            interruption.AddSpringEvent().StartInterruption()
+            interruption.AddSpringEvent()
+            interruption.StartInterruption()
 
         
 
