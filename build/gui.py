@@ -521,7 +521,8 @@ class MainWindow:
         if(self.testMode.GetTestStatus()):
             self.UpdateInterface(self.statusText,"Test Stopped")
         
-        self.testMode.SetTestStatus(False)
+        self.testMode.StopTest()
+        
         for interruption in self.springsInterruptions:
             interruption.StopInterruption()
         

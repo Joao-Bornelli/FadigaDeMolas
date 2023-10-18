@@ -19,3 +19,7 @@ class TestMode:
         
     def GetTestStatus(self):
         return self.isRunning
+    
+    def StopTest(self):
+        self.testMode = None
+        self.SetTestStatus(False)
