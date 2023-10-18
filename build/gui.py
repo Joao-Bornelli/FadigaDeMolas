@@ -518,6 +518,10 @@ class MainWindow:
     # Stop the interruption
     def StopButton(self):
         self.cycleCounter.StopInterruption()
+        
+        if(self.testMode.GetTestStatus()):
+            self.UpdateInterface(self.statusText,"Test Stopped")
+        
         self.testMode.SetTestStatus(False)
         for interruption in self.springsInterruptions:
             interruption.StopInterruption()

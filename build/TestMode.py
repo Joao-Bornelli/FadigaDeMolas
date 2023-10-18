@@ -14,6 +14,7 @@ class TestMode:
         self.testMode = mode
         
     def SetTestStatus(self,status):
+        print('status changed: ' + status)
         self.isRunning = status
         
     def GetTestStatus(self):
