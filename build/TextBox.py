@@ -17,14 +17,14 @@ class TextBox:
             anchor="center",
             text="1",
             fill="#000000",
-            font=("Inter Bold", 14 * -1)
+            font=("Inter Bold", 14)
         )
         
         
     def SetBackgroungColor(self, status):
-        if status: self.canvas.itemconfig(self.textBox, fill = "#f55151")
+        if status: self.canvas.itemconfig(self.bgRectangle, fill = "#f55151")
         # self.CreateBackgroundRectangle("#f55151")
-        else: status: self.canvas.itemconfig(self, fill = "#D9D9D9")
+        else: status: self.canvas.itemconfig(self.bgRectangle, fill = "#D9D9D9")
         
     def SetCycles(self, number):
         self.cycleNumber = number
@@ -43,7 +43,7 @@ class TextBox:
     
     
     def CreateBackgroundRectangle(self,color = "#D9D9D9"):
-        self.canvas.create_rectangle(
+        self.bgRectangle = self.canvas.create_rectangle(
             self.Xposition - 90,
             self.Yposition - 20,
             self.Xposition + 90,
