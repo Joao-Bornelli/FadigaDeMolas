@@ -12,6 +12,7 @@ class RaspGPIO:
     
         
     def cleanup(self):
+        print('Interruption erased')
         GPIO.remove_event_detect(self.GPIOpin)
     
         
@@ -35,4 +36,5 @@ class RaspGPIO:
         
     def StopInterruption(self):
         self.isRunning = False
-        self.cleanup
+        self.cleanup()
+        
