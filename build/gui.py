@@ -501,9 +501,15 @@ class MainWindow:
 
     # Start the interruption
     def StartButton(self):
-        
-        if(self.testMode.GetTestMode() == None): self.UpdateInterface(self.statusText,"Select Test Mode")
+        selectedMode = self.testMode.GetTestMode()
+        if(selectedMode == None): self.UpdateInterface(self.statusText,"Select Test Mode")
         else:
+            
+            if(selectedMode == 0):
+                self.UpdateInterface(self.statusText,"Running Until Failure")
+            else:
+                self.UpdateInterface(self.statusText,"Running Until First Fail")
+                
             self.ResetCounter()
     
             self.cycleCounter.AddCounterEvent()
@@ -539,7 +545,7 @@ class MainWindow:
         if(not self.testMode.GetTestStatus()):
             self.testMode.SetTestMode(0)
             self.testMode.SetTestStatus(True)
-            self.UpdateInterface(self.statusText,"Until Failure Running")
+            self.UpdateInterface(self.statusText,"Until Failure Selected")
             
         else: self.UpdateInterface(self.statusText,"Test Already Running")
     
@@ -547,6 +553,11 @@ class MainWindow:
         if(not self.testMode.GetTestStatus()):
             self.testMode.SetTestMode(1)
             self.testMode.SetTestStatus(True)
-            self.UpdateInterface(self.statusText,"First To Fail Running")
+            self.UpdateInterface(self.statusText,"First To Fail Selected")
             
         else: self.UpdateInterface(self.statusText,"Test Already Running")
+        
+        
+        
+        
+        #Try to add a temporary text that says test already running and return to previous text
