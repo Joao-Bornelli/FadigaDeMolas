@@ -511,7 +511,7 @@ class MainWindow:
     def StopButton(self):
         for interruption in self.springsInterruptions:
             interruption.StopInterruption()
-        self.cycleCounter.StopInterruption()
+        self.cycleCounter.StopInterruption() 
     
     def UpdateInterface(self, spring, number):
         self.canvas.itemconfig(spring.textBox, text=str(number))
