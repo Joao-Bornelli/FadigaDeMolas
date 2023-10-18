@@ -532,7 +532,7 @@ class MainWindow:
         
         
     def UntilFailureTest(self):
-        if(not TestMode.GetTestStatus()):
+        if(not self.testMode.GetTestStatus()):
             self.testMode.SetTestMode(0)
             self.testMode.SetTestStatus(True)
             self.UpdateInterface(self.statusText,"Until Failure Running")
@@ -540,7 +540,7 @@ class MainWindow:
         else: self.UpdateInterface(self.statusText,"Test Already Running")
     
     def FirstToFailTest(self):
-        if(not TestMode.GetTestStatus()):
+        if(not self.testMode.GetTestStatus()):
             self.testMode.SetTestMode(1)
             self.testMode.SetTestStatus(True)
             self.UpdateInterface(self.statusText,"First To Fail Running")
