@@ -517,7 +517,8 @@ class MainWindow:
 
     # Stop the interruption
     def StopButton(self):
-        self.cycleCounter.StopInterruption() 
+        self.cycleCounter.StopInterruption()
+        self.testMode.SetTestStatus(False)
         for interruption in self.springsInterruptions:
             interruption.StopInterruption()
         
@@ -531,9 +532,17 @@ class MainWindow:
         
         
     def UntilFailureTest(self):
-        self.testMode.SetTestMode(0)
-        self.UpdateInterface(self.statusText,"Until Failure Running")
+        if(not TestMode.GetTestStatus()):
+            self.testMode.SetTestMode(0)
+            self.testMode.SetTestStatus(True)
+            self.UpdateInterface(self.statusText,"Until Failure Running")
+            
+        else: self.UpdateInterface(self.statusText,"Test Already Running")
     
     def FirstToFailTest(self):
-        self.testMode.SetTestMode(1)
-        self.UpdateInterface(self.statusText,"First To Fail Running")
+        if(not TestMode.GetTestStatus()):
+            self.testMode.SetTestMode(1)
+            self.testMode.SetTestStatus(True)
+            self.UpdateInterface(self.statusText,"First To Fail Running")
+            
+        else: self.UpdateInterface(self.statusText,"Test Already Running")
