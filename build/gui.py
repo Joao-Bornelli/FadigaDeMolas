@@ -434,8 +434,10 @@ class MainWindow:
         # self.generator = InterruptionGenerator(interval=0.5, window=self)
         
         # Create the Interruptions for the Springs
+        springGPIOPins = [26,19,13,6,5,21,20,16]
+        for i in range(len(springGPIOPins)):
+            self.springsInterruptions.append(RaspGPIO(springGPIOPins[i],window=self, spring=self.cyclesText[i]))
         
-
         # Create Interruption for the cycle Counter
         self.cycleCounter = RaspGPIO(12,window=self)
         
@@ -499,25 +501,20 @@ class MainWindow:
     # Start the interruption
     def StartButton(self):
         self.ResetCounter()
-        self.cycleCounter.AddCounterEvent()
-        self.cycleCounter.StartInterruption()
         
-        springGPIOPins = [26,19,13,6,5,21,20,16]
-
-        for i in range(len(springGPIOPins)):
-            self.springsInterruptions.append(RaspGPIO(springGPIOPins[i],window=self, spring=self.cyclesText[i]))
-            self.springsInterruptions[i].AddSpringEvent()
-            self.springsInterruptions[i].StartInterruption()
-        # for interruption in self.springsInterruptions:
-        #     interruption.StartInterruption()
+        self.cycleCounter.AddCounterEvent().StartInterruption()
+        
+        for interruption in self.springsInterruptions:
+            interruption.AddSpringEvent().StartInterruption()
 
         
 
     # Stop the interruption
     def StopButton(self):
+        self.cycleCounter.StopInterruption() 
         for interruption in self.springsInterruptions:
             interruption.StopInterruption()
-        self.cycleCounter.StopInterruption() 
+        
     
     def UpdateInterface(self, spring, number):
         self.canvas.itemconfig(spring.textBox, text=str(number))

@@ -15,7 +15,7 @@ class TextBox:
             Xposition, #143.0,
             Yposition, #61.0,
             anchor="center",
-            text="1",
+            text="-",
             fill="#000000",
             font=("Inter Bold", 14)
         )
