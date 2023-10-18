@@ -17,7 +17,7 @@ class TextBox:
             anchor="center",
             text="-",
             fill="#000000",
-            font=("Inter Bold", 14)
+            font=("Inter Bold", 12)
         )
         
         

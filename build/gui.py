@@ -9,9 +9,10 @@ import sys
 
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
-from timed_interruption import InterruptionGenerator
+# from timed_interruption import InterruptionGenerator
+from build.TestMode import TestMode
 from build.TextBox import TextBox
-from GPIO import RaspGPIO
+from build.GPIO import RaspGPIO
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -473,7 +474,7 @@ class MainWindow:
                 
         
         
-        
+        self.testMode = TestMode()
         
         # self.root.attributes("-fullscreen",True)
         self.root.resizable(False, False)
@@ -500,14 +501,17 @@ class MainWindow:
 
     # Start the interruption
     def StartButton(self):
-        self.ResetCounter()
         
-        self.cycleCounter.AddCounterEvent()
-        self.cycleCounter.StartInterruption()
-        
-        for interruption in self.springsInterruptions:
-            interruption.AddSpringEvent()
-            interruption.StartInterruption()
+        if(self.testMode.GetTestMode() == None): self.UpdateInterface(self.statusText,"Select Test Mode")
+        else:
+            self.ResetCounter()
+    
+            self.cycleCounter.AddCounterEvent()
+            self.cycleCounter.StartInterruption()
+            
+            for interruption in self.springsInterruptions:
+                interruption.AddSpringEvent()
+                
 
         
 
@@ -527,7 +531,9 @@ class MainWindow:
         
         
     def UntilFailureTest(self):
+        self.testMode.SetTestMode(0)
         self.UpdateInterface(self.statusText,"Until Failure Running")
     
     def FirstToFailTest(self):
+        self.testMode.SetTestMode(1)
         self.UpdateInterface(self.statusText,"First To Fail Running")
