@@ -8,7 +8,7 @@ class RaspGPIO:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.GPIOpin,GPIO.IN,pull_up_down = GPIO.PUD_UP)
         self.isRunning = False
-        
+        self.StopInterruption
     
         
     def cleanup(self):
@@ -36,3 +36,4 @@ class RaspGPIO:
         
     def StopInterruption(self):
         self.isRunning = False
+        self.cleanup
