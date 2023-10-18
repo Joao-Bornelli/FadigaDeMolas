@@ -12,6 +12,7 @@ class RaspGPIO:
     
         
     def cleanup(self):
+        GPIO.remove_event_detect(self.GPIOpin)
         GPIO.cleanup()
     
         
